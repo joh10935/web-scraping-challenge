@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 # Connect to MongoDB
-mongo = PyMongo(app, uri="mongodb://localhost:27017/Mission_to_Mars")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 mars_data = mongo.db.mars_data
 
 # Route to create template
