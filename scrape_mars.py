@@ -11,14 +11,16 @@ import time
 def init_browser():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
+    return browser
 
 def scrape():
     browser = init_browser()
     mars_dict ={}
-
+    
     # Mars News
     url = 'https://redplanetscience.com/'
-    browser.visit(f"{url}")
+    browser.visit(url)
+    time.sleep(5)
     html = browser.html
     soup = bs(html, 'html.parser')
     news_title = soup.find_all('div', class_='content_title')[0].text
@@ -27,6 +29,7 @@ def scrape():
     # Mars Image
     image_url = 'https://spaceimages-mars.com/'
     browser.visit(image_url)
+    time.sleep(5)
     html = browser.html
     mars_image_soup = bs(html, 'html.parser')
     image_path = mars_image_soup.find_all('img')[1]["src"]
@@ -42,6 +45,7 @@ def scrape():
     # Mars Hemispheres
     hemispheres_url = 'https://marshemispheres.com/'
     browser.visit(hemispheres_url)
+    time.sleep(2)
     hemispheres_html = browser.html
     hemispheres_soup = bs(hemispheres_html, 'html.parser')
     hemisphere_image_urls = []
@@ -61,7 +65,7 @@ def scrape():
         hemisphere_image_urls.append({"title": img_title,
                               "img_url": hemisphere_image_url})
     
-    
+        browser.back()
 
     # Mars Dictionary of Information
     mars_dict = {
