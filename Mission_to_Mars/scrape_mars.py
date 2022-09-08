@@ -61,7 +61,7 @@ def scrape():
         hemisphere_image_urls.append({"title": img_title,
                               "img_url": hemisphere_image_url})
     
-    browser.quit()
+    
 
     # Mars Dictionary of Information
     mars_dict = {
@@ -71,5 +71,7 @@ def scrape():
         "fact_table": str(mars_facts_html),
         "hemisphere_images": hemisphere_image_urls
     }
-
+    
+    browser.quit()
+    
     return mars_dict
