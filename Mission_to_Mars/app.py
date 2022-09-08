@@ -21,7 +21,7 @@ def scrape():
 
     scraped_data = scrape_mars.scrape()
     mars_data.update({}, scraped_data, upsert=True)
-    return redirect("/data")
+    return render_template("data.html", info=mars_info)
 
 # Route to page that pulls data from MongoDB
 @app.route("/data")
