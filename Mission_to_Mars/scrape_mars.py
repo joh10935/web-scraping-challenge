@@ -72,6 +72,4 @@ def scrape():
         "hemisphere_images": hemisphere_image_urls
     }
     
-    browser.quit()
-    
     return mars_dict
