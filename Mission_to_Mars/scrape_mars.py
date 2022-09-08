@@ -50,15 +50,15 @@ def scrape():
     # For loop for the hemisphere images
     for i in range(4):
     
-    browser.find_by_css('a.product-item img')[i].click()
-    time.sleep(3)
+        browser.find_by_css('a.product-item img')[i].click()
+        time.sleep(3)
     
-    image_soup = bs(browser.html, 'html.parser')
-    img_title = browser.find_by_css('h2.title').text
-    img_url = image_soup.find('img', class_="wide-image")['src']
-    hemisphere_image_url = hemispheres_url + img_url
+        image_soup = bs(browser.html, 'html.parser')
+        img_title = browser.find_by_css('h2.title').text
+        img_url = image_soup.find('img', class_="wide-image")['src']
+        hemisphere_image_url = hemispheres_url + img_url
     
-    hemisphere_image_urls.append({"title": img_title,
+        hemisphere_image_urls.append({"title": img_title,
                               "img_url": hemisphere_image_url})
     
     browser.quit()
