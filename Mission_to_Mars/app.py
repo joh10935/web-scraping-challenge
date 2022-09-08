@@ -18,7 +18,7 @@ def index():
 
 # Route to scrape function
 @app.route("/scrape")
-def scrape():
+def scraper():
   
     mars_dict = mongo.db.mars_dict
     mars_data = scrape_mars.scrape()
